@@ -5,3 +5,4 @@ Um script python que através da webcam do computador, detecta se há pessoas pr
 
 É necessário baixar o arquivo yolo.h5 disponível em: https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/yolo.h5
 
+No arquivo "request.py", atribua à variável "url" a URL do broker.
