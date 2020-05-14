@@ -15,7 +15,9 @@ detector = VideoObjectDetection()
 detector.setModelTypeAsYOLOv3()
 detector.setModelPath(os.path.join(execution_path, "yolo.h5"))
 
-detector.loadModel()
+detector.loadModel(detection_speed="flash")
+
+custom_objects = detector.CustomObjects(person=True)
 
 # gets executed on every frame of the video detection
 def forFrame(frame_number, output_array, output_count):
@@ -25,7 +27,8 @@ def forFrame(frame_number, output_array, output_count):
         request.setLight(0)
 
 
-video_path = detector.detectObjectsFromVideo(
+video_path = detector.detectCustomObjectsFromVideo(
+                custom_objects=custom_objects,
                 camera_input=camera,
                 output_file_path=os.path.join(execution_path, "camera_detected_video"),
                 frames_per_second=20,
